@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <style>
+        body { margin: 0; }
+        .zoom-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+        .zoom-control {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            line-height: 30px;
+            margin-left: 5px;
+            cursor: pointer;
+            user-select: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .button-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .button {
+            margin-right: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+<body>
+    <div class="zoom-controls">
+        <div id="zoomOut" class="zoom-control">-</div>
+        <div id="zoomIn" class="zoom-control">+</div>
+        <div id="flip" class="zoom-control">&#x21bb;</div>
+        <div id="changeBg" class="zoom-control">&#x1F3F3;</div> <!-- Background color change button -->
+    </div>
+    <div class="button-container">
+        <form method="post" action="/generate_gcode"> <br>
+            <button class="button">Generate G-code</button><br>
+        </form> 
+        <form method="post" action="/modify_model"> <br>
+            <button class="button">Modify</button><br>
+        </form> 
+    </div>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // Scene
+        const scene = new THREE.Scene();
+
+        // Camera
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 200;
+        camera.position.x = 20
+        camera.position.y = 0
+
+        // Renderer
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(new THREE.Color(0xffffff));
+        document.body.appendChild(renderer.domElement);
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        directionalLight.position.set(0, 1, 1);
+        scene.add(directionalLight);
+
+        // OrbitControls
+        const controls = new OrbitControls(camera, renderer.domElement);
+
+        let loadedObject;
+
+        // Loader
+        const loader = new OBJLoader();
+        loader.load(
+            '/static/models/output_mesh_0.obj',
+            function (object) {
+                loadedObject = object;
+                scene.add(loadedObject);
+                animate();
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function (error) {
+                console.log('An error happened');
+            }
+        );
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            controls.update();
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        const bgColors = [0xffffff, 0x888888, 0x000000]; // white, grey, black
+        let currentColorIndex = 0;
+
+        document.getElementById('changeBg').addEventListener('click', function() {
+            currentColorIndex++;
+            if (currentColorIndex >= bgColors.length) currentColorIndex = 0;
+            renderer.setClearColor(new THREE.Color(bgColors[currentColorIndex]));
+        });
+
+        document.getElementById('flip').addEventListener('click', function() {
+            if (loadedObject) {
+                // This will toggle the flip state each time the button is clicked.
+                loadedObject.rotation.x += Math.PI; // Adds 180 degrees in radians, flipping the object
+            }
+        });
+
+
+        // Zoom control functionality
+        document.getElementById('zoomIn').addEventListener('click', function() {
+            camera.zoom += 0.2;
+            camera.updateProjectionMatrix();
+        });
+
+        document.getElementById('zoomOut').addEventListener('click', function() {
+            camera.zoom -= 0.2;
+            camera.updateProjectionMatrix();
+        });
+    </script>
+</body>
+</html>

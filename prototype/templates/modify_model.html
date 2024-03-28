@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Modify Your 3D Model</h1>
+        <form method="post" action="/modified_model">
+            {% for param, min_max in params.items() %}
+            <label for="{{ param }}">{{ param }} (Min: {{ min_max[0] }}, Max: {{ min_max[1] }}):</label><br>
+            <input type="hidden" id="{{ param }}_value" name="{{ param }}_value" value="{{ min_max[2] }}">
+            <input type="range" id="{{ param }}" name="{{ param }}" class="slider" min="{{ min_max[0] }}" max="{{ min_max[1] }}" value="{{ min_max[2] }}" step="1"><br>
+            <span id="{{ param }}_display">Chosen value: {{ min_max[2] }}</span><br><br>
+            {% endfor %}
+            <input type="submit" value="Generate Model">
+        </form>
+    </div>
+</body>
+<script>
+    var sliders = document.querySelectorAll(".slider");
+    sliders.forEach(function(slider) {
+        var displayElementId = slider.id + "_display";
+        var displayElement = document.getElementById(displayElementId);
+
+        displayElement.textContent = "Chosen value: " + slider.value;
+
+        slider.addEventListener("input", function() {
+            document.getElementById(this.id + "_value").value = this.value;
+            displayElement.textContent = "Chosen value: " + this.value;
+        });
+    });
+</script>
+
+</html>

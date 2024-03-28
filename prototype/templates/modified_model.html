@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f0f0f0; /* Light gray background color */
+        }
+        #container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .button-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .button {
+            margin-right: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div class="button-container">
+        <form method="post" action="/generate_gcode"> <br>
+            <button class="button">Generate G-code</button><br>
+        </form> 
+        <form method="post" action="/modify_model"> <br>
+            <button class="button">Modify</button><br>
+        </form> 
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const container = document.getElementById('container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0xf0f0f0); // Light gray background color
+        container.appendChild(renderer.domElement);
+        
+        // Create a cube geometry with longer bases
+        const geometry = new THREE.BoxGeometry(15, 20, 15); // Adjust the dimensions as needed
+        
+        // Create a phong material with red color
+        const material = new THREE.MeshPhongMaterial({
+            color: 0xff0000, // Red color
+            specular: 0x808080,
+            shininess: 30
+        });
+        
+        // Create a mesh with the geometry and material
+        const cube = new THREE.Mesh(geometry, material);
+        
+        // Add the cube to the scene
+        scene.add(cube);
+        
+        // Add ambient light to the scene
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+        
+        // Add directional light to the scene
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        directionalLight.position.set(0, 1, 0);
+        scene.add(directionalLight);
+        
+        // Set the camera position
+        camera.position.z = 30;
+        
+        // Do not rotate the cube
+        cube.rotation.x = 0;
+        cube.rotation.y = 0;
+        
+        // Create an animation loop
+        const animate = function () {
+            requestAnimationFrame(animate);
+            // Rotate the cube slowly
+            cube.rotation.x += 0.005;
+            cube.rotation.y += 0.005;
+            renderer.render(scene, camera);
+        };
+        
+        // Start the animation loop
+        animate();
+
+        function generateGCode() {
+            // Add your code to generate G-code here
+            console.log("Generating G-code...");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-code</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+        }
+
+        .code-line {
+            white-space: pre;
+        }
+
+        .comment {
+            color: green;
+        }
+
+        .command {
+            color: blue;
+        }
+
+        .parameter {
+            color: red;
+        }
+
+        .directive {
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="code-line comment">; Start G-code</div>
+    <div class="code-line command">G28</div>
+    <div class="code-line command">G92 <span class="parameter">E0</span></div>
+    <div class="code-line comment">; Set printing temperature and bed temperature</div>
+    <div class="code-line command">M104 <span class="parameter">S200</span></div>
+    <div class="code-line command">M140 <span class="parameter">S60</span></div>
+    <div class="code-line command">M109 <span class="parameter">S200</span></div>
+    <div class="code-line command">M190 <span class="parameter">S60</span></div>
+    <div class="code-line comment">; Begin printing</div>
+    <div class="code-line directive">G21</div>
+    <div class="code-line directive">G90</div>
+    <div class="code-line directive">M82</div>
+    <div class="code-line directive">G92 <span class="parameter">E0</span></div>
+    <div class="code-line comment">; Layer 1</div>
+    <div class="code-line command">G1 <span class="parameter">Z0.2</span> <span class="parameter">F300</span></div>
+    <div class="code-line command">G1 <span class="parameter">E10</span> <span class="parameter">F100</span></div>
+    <div class="code-line command">G92 <span class="parameter">E0</span></div>
+    <div class="code-line comment">; Print box outline</div>
+    <div class="code-line command">G1 <span class="parameter">X10</span> <span class="parameter">Y10</span> <span class="parameter">F3000</span></div>
+    <div class="code-line command">G1 <span class="parameter">Z0.4</span> <span class="parameter">F300</span></div>
+    <div class="code-line command">G1 <span class="parameter">X90</span> <span class="parameter">F3000</span></div>
+    <div class="code-line command">G1 <span class="parameter">Y90</span> <span class="parameter">F3000</span></div>
+    <div class="code-line command">G1 <span class="parameter">X10</span> <span class="parameter">F3000</span></div>
+    <div class="code-line command">G1 <span class="parameter">Y10</span> <span class="parameter">F3000</span></div>
+    <div class="code-line command">G1 <span class="parameter">Z0.6</span> <span class="parameter">F300</span></div>
+    <div class="code-line comment">; Print the infill</div>
+    <div class="code-line command">G1 <span class="parameter">X15</span> <span class="parameter">Y15</span> <span class="parameter">F3000</span></div>
+    <div class="code-line command">G1 <span class="parameter">Z0.6</span> <span class="parameter">F300</span></div>
+    <div class="code-line command">G1 <span class="parameter">X85</span> <span class="parameter">F3000</span></div>
+    <div class="code-line command">G1 <span class="parameter">Y85</span> <span class="parameter">F3000</span></div>
+    <div class="code-line command">G1 <span class="parameter">X15</span> <span class="parameter">F3000</span></div>
+    <div class="code-line command">G1 <span class="parameter">Y15</span> <span class="parameter">F3000</span></div>
+    <div class="code-line comment">; Layer 2</div>
+    <div class="code-line command">G1 <span class="parameter">Z0.8</span> <span class="parameter">F300</span></div>
+    <div class="code-line command">G1 <span class="parameter">E10</span> <span class="parameter">F100</span></div>
+    <div class="code-line command">G92 <span class="parameter">E0</span></div>
+    <!-- Continue printing the layers... -->
+    <div class="code-line comment">; End G-code</div>
+    <div class="code-line command">M104 <span class="parameter">S0</span></div>
+    <div class="code-line command">M140 <span class="parameter">S0</span></div>
+    <div class="code-line command">G28 <span class="parameter">X0</span></div>
+    <div class="code-line command">M84</div>
+</body>
+</html>

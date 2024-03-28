@@ -1,0 +1,1 @@
+[<Rhino.Geometry.Brep object at 0x0000026CC34CB2C0>, None]
