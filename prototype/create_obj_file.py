@@ -27,22 +27,19 @@ except:
 # Define the path to the log file
 log_file_path = "sliders_value.log"
 
-# # Open the log file in append mode and write the value
-# with open(log_file_path, "a") as log_file:
-#     log_file.write(str(sliders_value) + "\n")
-
-# with open('./FullExamples/baking_mold_1.py', 'r', encoding='utf-8-sig') as f:
+# with open('./FullExamples/plate_1.py', 'r', encoding='utf-8-sig') as f:
 #     contents = f.read()
 #
 # # Re-save the file with the correct encoding and without BOM
-# with open('./FullExamples/baking_mold_1.py', 'w', encoding='utf-8') as f:
+# with open('./FullExamples/plate_1.py', 'w', encoding='utf-8') as f:
 #     f.write(contents)
     
-generated_code = get_file_content("./FullExamples/", f"baking_mold_1.py")
+generated_code = get_file_content("./FullExamples/", f"plate_1.py")
 # prefix_code = get_file_content("Utils","prefix_full_program_grasshopper.py") #change to relevant prefix to implement the function create_params(input_list)
 # code = f"{prefix_code}\n\n{generated_code}"
 code = generated_code
 ex_locals = {"sliders_value": json.loads(sliders_value)} if sliders_value else {}
+
 
 old_stdout = sys.stdout
 redirected_output = sys.stdout = StringIO()

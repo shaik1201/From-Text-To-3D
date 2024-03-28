@@ -1,4 +1,5 @@
 import rhinoinside
+
 rhinoinside.load()
 
 # System and Rhino can only be loaded after rhinoinside is initialized
@@ -6,7 +7,6 @@ rhinoinside.load()
 import Rhino.Geometry as rg  # noqa
 import Rhino
 import traceback
-
 
 # print('finished loading rhinoinside')
 
@@ -131,4 +131,3 @@ a = [bowl_base, bowl_body]
 # Return the parameters by placing them in variable b
 b = {"body_height": [10, 300, body_height], "body_bottom_radius": [10, 400, body_bottom_radius],
      "body_top_radius": [10, 400, body_top_radius]}
-
