@@ -15,9 +15,7 @@ TOLERANCE = 0.01
 
 
 def create_bowl_body(origin, normal, bottom_radius, top_radius, height):
-    import clr
-    clr.AddReference("System.Collections")
-    from System.Collections.Generic import List
+    
 
     """
     This function creates a 3D model of a bowl body. 
@@ -33,6 +31,10 @@ def create_bowl_body(origin, normal, bottom_radius, top_radius, height):
     Return: 
         Rhino.Geometry.Brep: 3D model of the bowl body
     """
+    import clr
+    clr.AddReference("System.Collections")
+    from System.Collections.Generic import List
+    
     try:
         # print("INFO: create_bowl_body - start", locals())
         # Create plane to locate the body
