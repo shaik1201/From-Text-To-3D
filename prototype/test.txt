@@ -1,1 +1,1 @@
-[<Rhino.Geometry.Brep object at 0x0000026CC34CB2C0>, None]
+[<Rhino.Geometry.Brep object at 0x0000022DB1D5F480>, <Rhino.Geometry.Brep object at 0x0000022DB1D5F4C0>, <Rhino.Geometry.Brep object at 0x0000022DB1D60F80>]

@@ -1,22 +1,24 @@
 import rhinoinside
 rhinoinside.load()
+
 # System and Rhino can only be loaded after rhinoinside is initialized
 # import System  # noqa
-# import Rhino
 import Rhino.Geometry as rg  # noqa
 import Rhino
 import traceback
-import clr
-clr.AddReference("System.Collections")
 
-from System.Collections.Generic import List
 
 # print('finished loading rhinoinside')
 
 # TOLERANCE = Rhino.RhinoDoc.ActiveDoc.ModelAbsoluteTolerance
 TOLERANCE = 0.01
 
+
 def create_bowl_body(origin, normal, bottom_radius, top_radius, height):
+    import clr
+    clr.AddReference("System.Collections")
+    from System.Collections.Generic import List
+
     """
     This function creates a 3D model of a bowl body. 
     The body is modeled as a conical or semi-spherical shape.
@@ -43,20 +45,21 @@ def create_bowl_body(origin, normal, bottom_radius, top_radius, height):
         top_plane = rg.Plane(origin + normal * height, normal)
         top_circle = rg.Circle(top_plane, top_radius).ToNurbsCurve()
 
-        # print(type(base_circle), type(top_circle))
-        
-        # Create the bowl by lofting the two circles
-        closed = False
-        enumerable_list = List[Rhino.Geometry.NurbsCurve]()
-        for item in [base_circle, top_circle]:
-            enumerable_list.Add(item)
-        loft = rg.Brep.CreateFromLoft(enumerable_list, rg.Point3d.Unset, rg.Point3d.Unset, rg.LoftType.Normal, closed)[0]
+        # Create a .NET list to hold the curves
+        curveList = List[rg.Curve]()
+        curveList.Add(base_circle)
+        curveList.Add(top_circle)
 
-        # print("INFO: create_bowl_body - return", loft)
+        closed = False
+        loft = rg.Brep.CreateFromLoft(curveList, rg.Point3d.Unset, rg.Point3d.Unset, rg.LoftType.Normal, closed)[0]
+
+        print("INFO: create_bowl_body - return", loft)
         return loft
+
     except Exception as error:
-        # print("ERROR: create_bowl_body ", "An error occurred:", traceback.format_exc())
+        print("ERROR: create_bowl_body ", "An error occurred:", traceback.format_exc())
         return None
+
 
 def create_bowl_base(origin, normal, radius):
     """
@@ -72,7 +75,7 @@ def create_bowl_base(origin, normal, radius):
         Rhino.Geometry.Brep: 3D model of the base
     """
     TOLERANCE = 0.01
-    
+
     try:
         # print("INFO: create_bowl_base - start", locals())
         # Create plane to locate the base
@@ -89,6 +92,7 @@ def create_bowl_base(origin, normal, radius):
     except Exception as error:
         # print("ERROR: create_bowl_base ", "An error occurred:", traceback.format_exc())
         return None
+
 
 # Generate input sliders by (name,value,min,max)
 # input_list = [
@@ -121,9 +125,10 @@ base_normal = body_normal
 bowl_body = create_bowl_body(body_origin, body_normal, body_bottom_radius, body_top_radius, body_height)
 bowl_base = create_bowl_base(base_origin, base_normal, base_radius)
 
-
 # Return the created objects by placing them in variable a
 a = [bowl_base, bowl_body]
 
 # Return the parameters by placing them in variable b
-b = {"body_height": [10, 300, body_height], "body_bottom_radius": [10, 400, body_bottom_radius], "body_top_radius": [10, 400, body_top_radius]}
+b = {"body_height": [10, 300, body_height], "body_bottom_radius": [10, 400, body_bottom_radius],
+     "body_top_radius": [10, 400, body_top_radius]}
+
