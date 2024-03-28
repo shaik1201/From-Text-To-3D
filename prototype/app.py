@@ -30,7 +30,6 @@ def generate_model():
 
 @app.route('/modify_model', methods=['POST'])
 def modify_model():
-
     params = session.get('params')
     num_of_params = session.get('num_of_params')
     return render_template('modify_model.html', params=params, num_of_params=num_of_params)
