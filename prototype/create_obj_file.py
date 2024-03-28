@@ -35,7 +35,7 @@ with open(log_file_path, "a") as log_file:
 #     contents = f.read()
 #
 # # Re-save the file with the correct encoding and without BOM
-# with open('./FullExamples/baking_mold_1.py', 'w', encoding='utf-8') as f:
+# with open('./FullExamples/plate_1.py', 'w', encoding='utf-8') as f:
 #     f.write(contents)
     
 generated_code = get_file_content("./FullExamples/", f"box_1.py")
@@ -43,6 +43,7 @@ generated_code = get_file_content("./FullExamples/", f"box_1.py")
 # code = f"{prefix_code}\n\n{generated_code}"
 code = generated_code
 ex_locals = {"sliders_value": json.loads(sliders_value)} if sliders_value else {}
+
 
 old_stdout = sys.stdout
 redirected_output = sys.stdout = StringIO()
