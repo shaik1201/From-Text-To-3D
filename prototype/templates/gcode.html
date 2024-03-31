@@ -29,6 +29,19 @@
         .directive {
             color: purple;
         }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -74,5 +87,10 @@
     <div class="code-line command">M140 <span class="parameter">S0</span></div>
     <div class="code-line command">G28 <span class="parameter">X0</span></div>
     <div class="code-line command">M84</div>
+
+    <br>
+        <form method="get" action="/">
+            <button type="submit">Go to Home Page</button>
+        </form>
 </body>
 </html>

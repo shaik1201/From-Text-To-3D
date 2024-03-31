@@ -16,41 +16,42 @@ import json
 import os
 
 
-
-prompt = "" #get from ui
-# file_name = run_all_agents(prompt)
 try:
     sliders_value = sys.argv[1]
 except:
     sliders_value = None
-    
-# Define the path to the log file
-log_file_path = "sliders_value.log"
 
-# Open the log file in append mode and write the value
-with open(log_file_path, "a") as log_file:
-    log_file.write(str(sliders_value) + "\n")
-
-# with open('./FullExamples/baking_mold_1.py', 'r', encoding='utf-8-sig') as f:
-#     contents = f.read()
-#
-# # Re-save the file with the correct encoding and without BOM
-# with open('./FullExamples/plate_1.py', 'w', encoding='utf-8') as f:
-#     f.write(contents)
+if sliders_value:      
+    if not isinstance(json.loads(sliders_value), dict):
+        prompt = json.loads(sliders_value)
+        options = ['box', 'bowl', 'ellipse baking mold', 'plate', 'cup', 'glass',
+                'bottle', 'baking mold', 'flower pot', 'hook', 'toothpick dispenser']
+        for option in options:
+            if option in prompt:
+                if option == 'bowl':
+                    file_name = 'bowl_2.py'
+                    break
+                else:
+                    name = "_".join(option.split())
+                    file_name = f'{name}_1.py'
+                    break
+        with open("file_name.txt", "w") as f:
+            f.write(file_name)
     
-generated_code = get_file_content("./FullExamples/", f"box_1.py")
-# prefix_code = get_file_content("Utils","prefix_full_program_grasshopper.py") #change to relevant prefix to implement the function create_params(input_list)
-# code = f"{prefix_code}\n\n{generated_code}"
+with open("file_name.txt", "r") as f:
+    file_name = f.read()
+    
+# file_name = run_all_agents()
+    
+generated_code = get_file_content("./Full_Programs/", file_name)
 code = generated_code
-ex_locals = {"sliders_value": json.loads(sliders_value)} if sliders_value else {}
 
+ex_locals = {"sliders_value": json.loads(sliders_value)} if isinstance(json.loads(sliders_value), dict) else {}
 
 old_stdout = sys.stdout
 redirected_output = sys.stdout = StringIO()
 exec(code, None, ex_locals)
 sys.stdout = old_stdout
-
-# print(redirected_output.getvalue())
 
 geometry = ex_locals['a'] # array of breps
 params = ex_locals['b']
@@ -60,32 +61,6 @@ result = {
             'num_of_params': num_of_params
         }
 print(json.dumps(result))
-# print(geometry)
-
-with open("test.txt", "w") as f:
-    f.write(str(geometry))
-
-
-# mesh = rg.Mesh.CreateFromBrep(geometry[0])
-# # print(len(mesh))
-#
-# meshes_trimesh = []
-# for rhino_mesh in mesh:
-#     # Convert Rhino vertices to numpy array
-#     vertices = np.array([[v.X, v.Y, v.Z] for v in rhino_mesh.Vertices], dtype=np.float64)
-#     # Convert Rhino faces to numpy array
-#     faces = np.array([[f.A, f.B, f.C] for f in rhino_mesh.Faces], dtype=np.int32)
-#     tmesh = trimesh.Trimesh(vertices=vertices, faces=faces)
-#     meshes_trimesh.append(tmesh)
-#
-#
-# import os
-# # Save each Trimesh object to separate OBJ files
-# for i, tmesh in enumerate(meshes_trimesh):
-#     output_file = f"static/models/output_mesh_{i}.obj"
-#     if os.path.exists(output_file):
-#         os.remove(output_file)  # Delete the file if it already exists
-#     tmesh.export(output_file)
 
 
 # Convert each Brep in the geometry list to mesh and combine them
