@@ -1,0 +1,3 @@
+Lampshade Body: A hemispherical shape with a narrow upper part that gradually expands downwards
+Parameters: body_height=100, body_bottom_radius=150, body_mid_radius=100, body_top_radius=30
+Orientation: body_origin=(0,0,0), body_normal=ZAxis

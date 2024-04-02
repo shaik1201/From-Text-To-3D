@@ -1,0 +1,27 @@
+Plisse Kettle Body: A truncated cone shape with a pleated surface. The texture consists of vertical ridges and valleys that run parallel to the height of the kettle.
+Parameters: body_height=200, body_bottom_radius=80, body_top_radius=60, body_pleats_count=30, body_pleat_depth=5
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Plisse Kettle Base: A flat surface in circle shape with pleated edges at the bottom of the kettle
+Parameters: base_radius=body_bottom_radius, base_pleats_count=body_pleats_count, base_pleat_depth=body_pleat_depth
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Plisse Kettle Spout: A curved, conical nozzle protruding from the upper part of the body, with the flat side flush with the body's surface.
+Parameters: spout_height=23, spot_width=20, spot_depth=20, spout_fillet_radius=2, spout_relative_height=0.9
+Orientation: spout_origin=(-body_bottom_radius-(body_top_radius-body_bottom_radius)\spout_relative_height,0,body_height*spout_relative_height), spout_normal=-XAxis
+
+Kettle Handle Upper Part: An elongated cube shape that protrudes from the side of the body outwards. 
+Parameters: upper_handle_length=50, upper_handle_height=40, upper_handle_width=40,  upper_handle_relative_height=0.8
+Orientation: upper_handle_origin=(body_bottom_radius+(body_top_radius-body_bottom_radius)\upper_handle_relative_height,0,body_height*upper_handle_relative_height), upper_handle_normal=XAxis
+
+Kettle Handle Side Part: A cylinder shape with a texture of folds that emerge from the edge of the upper part of the handle and extends downwards
+Parameters: handle_cylinder_height=80, handle_cylinder_radius=20, pleats_count=25, pleat_depth=3
+Orientation: side_handle_origin=upper_handle_origin+(handle_cylinder_radius,0,upper_handle_height/2), side_handle_normal=-ZAxis
+
+Kettle Lid: A flat, circular disk with a slightly convex top, fitting into the top opening of the body
+Parameters: lid_radius=body_upper_radius, lid_height=4
+Orientation: lid_origin=(0,0,body_height), lid_normal=body_normal
+
+Lid Handle: A small cylindrical shape that sits on the top center of the lid with a pleated surface texture.
+Parameters: lid_handle_radius=lid_radius*0.2, pleats_count=20, pleat_depth=1.5
+Orientation: lid_handle_origin=(0,0,body_height+lid_height), lid_handle_normal=body_normal

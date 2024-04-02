@@ -7,7 +7,7 @@ import Rhino.Geometry as rg  # noqa
 import rhino3dm
 
 import traceback
-from utils import get_file_content
+from Utils.file_utils import get_file_content
 import sys
 from io import StringIO
 import trimesh
@@ -41,7 +41,8 @@ if sliders_value:
 with open("file_name.txt", "r") as f:
     file_name = f.read()
     
-# file_name = run_all_agents()
+# file_name = run_all_agents() when the finetuning will be ready and steady this
+# will be the function that will be called to run the agents and get the file name
     
 generated_code = get_file_content("./Full_Programs/", file_name)
 code = generated_code

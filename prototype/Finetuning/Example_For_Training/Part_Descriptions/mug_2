@@ -1,0 +1,12 @@
+Mug Body: A shape similar to a truncated sphere, or cylindrical shape with a curved surface that expands towards the middle and narrows at the base and the rim.
+Parameters: body_height=100, body_base_radius=35, body_middle_radius=60, body_rim_radius=40
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Mug Base: A flat surface in circle shape at the bottom of the mug.
+Parameters: base_radius=body_base_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Mug Handle: A large C-shaped structure, attached vertically on the side of the mug body.
+Parameters: handle_height=60, handle_thickness=10, handle_relative_height=0.5, handle_relative_angle_at_start=0.6
+Alignment: handle_alignment=ZAxis (Vertical)
+Orientation: handle_origin=(body_middle_radius,0, body_height*handle_relative_height), handle_normal=XAxis

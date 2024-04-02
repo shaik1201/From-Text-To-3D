@@ -1,0 +1,11 @@
+Lamp Body: A long semi-circle shape. or the transverse half of a cylinder.
+Parameters: body_height=100, body_radius=60
+Orientation: body_origin=(0,0,base_height+handle_height), body_normal=ZAxis
+
+Lamp Base: A cylindrical plate, transitioning smoothly from a wider bottom to a narrower top.
+Parameters: base_height=10, base_bottom_radius=30, base_top_radius=handle_radius
+Orientation: base_origin=(0,0,0), base_normal=body_normal
+
+Lamp Handle: A tall thin cylinder.
+Parameters: handle_radius=15, handle_height=10
+Orientation: handle_origin=(0,0,base_height), handle_normal=body_normal

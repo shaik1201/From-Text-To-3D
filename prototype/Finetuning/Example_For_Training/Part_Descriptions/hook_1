@@ -1,0 +1,4 @@
+Hook Body: S-shaped pipe with rounded caps. The shape consists of two connected arcs at the top and bottom of the body.
+Parameters: body_top_arc_radius=10, body_bottom_arc_radius=15, body_height=60, body_thickness=2, body_arc_angle_domain_relative_pi=1.25
+Alignment: body_alignment=YAxis (Horizontal)
+Orientation: body_origin=(0,0,0), body_normal=ZAxis

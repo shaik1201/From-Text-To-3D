@@ -1,0 +1,10 @@
+Plant pot Body: A twisted cylindrical body with triangular patterns along its edge surface.
+Parameters: body_radius=100, triangles_width=20, triangle_bisection=0.2, body_height=200, twisting_angle=60
+Alignment: -XAxis
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Plant pot Base: A flat circular surface with a triangular pattern along its edges.
+Parameters: base_radius=body_radius, triangles_width=20, triangle_bisection=0.2
+Alignment: body_alignment.XAxis
+Orientation: base_origin=body_origin, base_normal=body_normal.ZAxis
+ 

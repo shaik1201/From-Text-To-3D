@@ -1,0 +1,11 @@
+Salt Shaker Body: A sphere or curved cylinder
+Parameters: body_height=100, body_bottom_radius=30, body_mid_radius=50, body_top_radius=30
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Salt Shaker Base Rim: A flat surface in a circle shape at the bottom of the salt shaker.
+Parameters: base_rim_radius=body_bottom_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Salt Shaker Top: A perforated flat disk or a hemisphere shape. The holes are located in few circles around the center of the surface
+Parameters: lid_radius=body_radius, holes_radius=0.5,  holes_amount=10, holes_distance_from_center=15, holes_circles_amount=2
+Orientation: lid_origin=(0,0,body_height), lid_normal=body_normal

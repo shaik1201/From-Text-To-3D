@@ -1,0 +1,7 @@
+Bowl Body: A semi-spherical or conical shape.
+Parameters: body_height=80, body_bottom_radius=100, body_top_radius=125
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Bowl Base: A flat surface in a circular shape at the bottom of the bowl.
+Parameters: base_radius=body_bottom_radius
+Orientation: base_origin=body_origin, base_normal=body_normal

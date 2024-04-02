@@ -1,0 +1,12 @@
+Ellipse baking mold Body: An extruded ellipse.
+Parameters: body_width=230, body_length=280, body_height=50
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Ellipse baking mold Base: A flat ellipse surface.
+Parameters: base_width=body_width, base_length=body_length
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Ellipse baking mold Rim: A half-pipe-shaped along the entire length of the ellipse
+Parameters: rim_ellipse_length=body_length, rim_ellipse_width=body_width, rim_thickness=3, rim_height=6 
+Alignment: rim_alignment=body_normal
+Orientation: rim_origin=(0,0,body_height), rim_normal=XAxis

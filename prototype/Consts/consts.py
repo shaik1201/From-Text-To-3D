@@ -1,0 +1,7 @@
+ROLE = "role"
+SYSTEM = "system"
+USER = "user"
+ASSISTANT = "assistant"
+CONTENT = "content"
+MESSAGES = "messages"
+OPENAI_API_KEY = "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"

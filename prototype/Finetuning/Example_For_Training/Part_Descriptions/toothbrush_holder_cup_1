@@ -1,0 +1,7 @@
+Toothbrush Holder Body: a cylindrical shape
+Parameters: body_height=100, body_radius=40
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Toothbrush Holder Base: A perforated flat surface in circle shape at the bottom of the body. The holes are located in circle around the center of the surface
+Parameters: base_radius=body_radius, holes_radius=2,  holes_amount=5, holes_distance_from_center=15
+Orientation: base_origin=body_origin, base_normal=body_normal

@@ -1,0 +1,13 @@
+Vase Body: A sphere or curved cylinder tapering into a narrow cylinder
+Parameters: body_height=200, body_bottom_radius=70, body_neck_radius=30, body_neck_relative_height=0.7
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Vase Base: A flat surface in circle shape at the bottom of the vase.
+Parameters: base_radius=body_bottom_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Pot Handles: A pair of horizontal semi-circular shapes, attached vertically on opposite sides of the vase body.
+Parameters: handle_height=70, handle_width=30, handle_thickness=10, handle_relative_height=0.3
+Alignment: handle_alignment=ZAxis (Vertical)
+Right Handle Orientation: right_handle_origin=(body_radius,0, body_height*handle_relative_height), right_handle_normal=XAxis
+Left Handle Orientation: left_handle_origin=(-body_radius,0, body_height*handle_relative_height), left_handle_normal=-XAxis

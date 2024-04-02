@@ -1,0 +1,24 @@
+Teapot Body: A semi-spherical or cylindrical shape.
+Parameters: body_height=130, body_bottom_radius=70, body_middle_radius=120, body_up_radius=90
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Teapot Base: A flat surface in circle shape at the bottom of the teapot.
+Parameters: base_radius=body_bottom_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Teapot Handle: A semi-circular or semi-oval shape, attached on one side of the teapot body.
+Parameters: handle_height=90, handle_width=80, handle_thickness=8, handle_relative_height=0.5
+Alignment: handle_alignment=ZAxis  (Vertical)
+Orientation: handle_origin=(-body_middle_radius,0, handle_relative_height*body_height), handle_normal=-XAxis
+
+Teapot Spout: A conical or cylindrical shape, attached diagonally on the opposite side of the handle on the teapot body at the bootom part and twists upwards
+Parameters: spout_height=90, spout_bottom_radius=23, spout_upper_radius=10, spout_relative_height=0.3
+Orientation: spout_origin=(body_bottom_radius+(body_middle_radius-body_bottom_radius)\spout_relative_height,0,body_height*spout_relative_height), spout_normal=XAxis+ZAxis
+
+Teapot Lid: The lid is a semi-spherical shape.
+Parameters: lid_radius=body_up_radius, lid_height
+Orientation: lid_origin=(0,0,body_height), lid_normal=body_normal
+
+Lid Knob: A small semi-sphere that sits on the top center of the lid.
+Parameters: lid_handle_radius=lid_radius*0.12
+Orientation: lid_handle_origin=(0,0,body_height+lid_height), lid_handle_normal=body_normal

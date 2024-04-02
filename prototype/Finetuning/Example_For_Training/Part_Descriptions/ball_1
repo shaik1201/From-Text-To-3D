@@ -1,0 +1,3 @@
+Ball Body: A sphere
+Parameters: body_radius=50
+Orientation: body_origin=(0,0,0), body_normal=ZAxis

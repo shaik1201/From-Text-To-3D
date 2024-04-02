@@ -1,0 +1,11 @@
+Soup plate Body: curved or sloping sides that extend upward from the base
+Parameters: body_bottom_radius=100, body_top_radius=145, body_height=40
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Soup plate Base: A flat surface in a circle shape at the bottom of the soup plate.
+Parameters: base_radius=body_bottom_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Soup plate rim: A curved surface with a circular shape around the body
+Parameters: rim_bottom_radius=body_top_radius, rim_top_radius=185, rim_height=6, 
+Orientation: rim_origin=(0,0,body_height), rim_normal=body_normal

@@ -1,0 +1,15 @@
+Toothpick Dispenser Body: a Cylinder shape
+Parameters: body_height=60, body_radius=20
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Toothpick Dispenser Base: A flat surface in circle shape at the bottom of the body.
+Parameters: base_radius=body_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Toothpick Dispenser Lid: A perforated flat circular disk shape on the top of the body. The holes are located in circle around the center of the surface
+Parameters: lid_radius=body_radius, holes_radius=1.5,  holes_amount=6, holes_distance_from_center=20
+Orientation: lid_origin=(0,0,body_height), lid_normal=body_normal
+
+Toothpick Dispenser Lid Retention Ring: An inner ring at the bottom of the lid that holds it inside the body. A little bit smaller than the body radius.
+Parameters: lid_ring_distance_from_body=2, lid_ring_radius=body_radius-lid_ring_distance_from_body, lid_ring_height=10
+Orientation: lid_origin=(0,0,body_height-lid_ring_height), lid_normal=body_normal

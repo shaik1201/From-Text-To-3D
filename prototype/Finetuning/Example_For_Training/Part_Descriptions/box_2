@@ -1,0 +1,16 @@
+Box Body: A cuboid shape.
+Parameters: body_length=100, body_width=100, body_height=100
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Box Base: A flat surface in the shape of the box body at the bottom of the box
+Parameters: base_length=body_length, base_width=body_width
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Box Lid: A flat narrow box at the top of the box.
+Parameters: lid_length=body_length, lid_width=body_width, lid_height=10
+Orientation: lid_origin=(0,0,body_height), lid_normal=body_normal
+
+Lid Handle: A small semi-sphere that sits on the top center of the lid.
+Parameters: lid_handle_radius=10
+Orientation: lid_handle_origin=(0,0,body_height+lid_height), lid_handle_normal=body_normal
+

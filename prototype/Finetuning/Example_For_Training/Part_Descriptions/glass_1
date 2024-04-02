@@ -1,0 +1,7 @@
+Glass Body: An open cylindrical shape.
+Parameters: body_height=300, body_radius=80
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Glass Base: A flat circular shape at the bottom of the glass.
+Parameters: base_radius=body_radius
+Orientation: base_origin=body_origin, base_normal=body_normal

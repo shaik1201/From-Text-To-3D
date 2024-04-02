@@ -1,0 +1,7 @@
+Vase Body: A cylinder with a pleated surface. The texture consists of vertical ridges and valleys that run parallel to the height of the vase. The bootom part that connected to the base is smothh circle without texture.
+Parameters: body_height=200, body_bottom_radius=80, body_top_radius=100, body_pleats_count=30, body_pleat_depth=5, body_start_texture_relative_height=0.1
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Vase Base: A flat surface in circle shape at the bottom of the vase.
+Parameters: base_radius=body_bottom_radius
+Orientation: base_origin=body_origin, base_normal=body_normal

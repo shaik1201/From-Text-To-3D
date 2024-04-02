@@ -1,0 +1,11 @@
+Baking mold Body: An open box
+Parameters: body_width=230, body_length=280,  body_height=50
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Baking mold Base: A flat surface in a rectangular shape at the bottom of the mold.
+Parameters: base_width=body_width, base_length=body_length
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Baking mold Rim: An offset rectangle surface along the top edges of the mold.
+Parameters: rim_width_inner=body_width, rim_length_inner=body_length, rim_thickness=10
+Orientation: rim_origin=(0,0,body_height), rim_normal=body_normal

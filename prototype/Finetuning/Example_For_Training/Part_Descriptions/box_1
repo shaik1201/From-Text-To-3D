@@ -1,0 +1,7 @@
+Box Body: A shape similar to a cuboid, but with a slight expansion in the vertical direction.
+Parameters: body_width=80, body_length=150, body_height=100, body_expansion=1.2
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Box Base: A flat surface in a rectangular shape, at the bottom of the box
+Parameters: base_width=body_width, base_length=body_length
+Orientation: base_origin=body_origin, base_normal=body_normal

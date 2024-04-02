@@ -1,0 +1,28 @@
+Kettle Body: A truncated cone shape.
+Parameters: body_height=200, body_bottom_radius=150, body_upper_radius=120
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Kettle Base: A flat surface in circle shape at the bottom of the kettle.
+Parameters: base_radius=body_bottom_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Kettle Handle: A semi-circular or arc shape, attached horizontally on the top of the kettle body.
+Parameters: handle_height=50, handle_thickness=20, handle_length=body_upper_radius*2-handle_thickness
+Alignment: handle_alignment=XAxis (Horizontal)
+Orientation: handle_origin=(0,0,body_height), handle_normal=body_normal
+
+Kettle Spout: A cylindrical or conical shape, attached diagonally to the upper part on the side of the kettle body.
+Parameters: spout_height=100, spout_bottom_radius=22, spout_upper_radius=13, spout_relative_height=0.6, spout_obliquity=2.2
+Orientation: spout_origin=(body_bottom_radius+(body_upper_radius-body_bottom_radius)*spout_relative_height,0,body_height*spout_relative_height), spout_normal=XAxis+ZAxis*spout_obliquity
+
+Kettle Rim: A circular, slightly protruding edge at the top of the kettle, often designed to support the lid.
+Parameters: rim_external_radius=body_upper_radius, rim_tickness=35
+Orientation: rim_origin=(0,0,body_height), rim_normal=body_normal
+
+Kettle Lid: A flat circular disk or semi-spherical shape on the top of the body, a little bit larger than rim internal ring
+Parameters: lid_radius=rim_external_radius-rim_thickness+5, lid_height=20
+Orientation: lid_origin=(0,0,body_height), lid_normal=body_normal
+
+Lid Handle: A small semi-sphere that sits on the top center of the lid.
+Parameters: lid_handle_radius=9
+Orientation: lid_handle_origin=(0,0,body_height+lid_height), lid_handle_normal=lid_normal

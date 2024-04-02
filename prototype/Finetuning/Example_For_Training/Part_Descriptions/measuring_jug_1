@@ -1,0 +1,13 @@
+Measuring jug Body: A cylindrical base that gradually widens upward, seamlessly transitioning into a triangular-shaped upper section
+Parameters: body_base_radius=60, body_top_radius=70, body_height=100, spout_relative_height=0.8, jug_spout_length=10
+Alignment: body_alignment=YAxis
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Measuring jug Base: A flat surface in a circular shape at the bottom of the jug.
+Parameters: base_radius=body_base_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Measuring jug Handle: A flipped L-shaped structure, sits directly opposite to the spout's direction
+Parameters: handle_top_face_length=20, handle_side_face_length=70, handle_width=20, handle_thickness=2
+Alignment: handle_alignment=-ZAxis
+Orientation: handle_origin=(0,-body_top_radius,body_height-handle_thickness/2), handle_normal=-YAxis

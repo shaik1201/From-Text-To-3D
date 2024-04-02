@@ -1,0 +1,7 @@
+Bowl Body: A hemisphere or a truncated cone shape.
+Parameters: body_height=90, body_bottom_radius=30, body_middle_radius=110, body_upper_radius=140
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Bowl Base: A flat surface in circle shape at the bottom of the bowl.
+Parameters: base_radius=body_bottom_radius
+Orientation: base_origin=body_origin, base_normal=body_normal

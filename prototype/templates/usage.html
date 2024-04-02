@@ -34,18 +34,10 @@
             color: #555;
         }
 
-        input[type="text"] {
-            width: 30%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            display: block;
-            margin: 0 auto;
-            overflow-x: auto;
-        }
-        input[type="submit"] {
+        .button {
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 10px;
             padding: 10px 20px;
             background-color: #007bff;
             color: #fff;
@@ -53,10 +45,8 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            display: block;
-            margin: 0 auto;
         }
-        input[type="submit"]:hover {
+        .button:hover {
             background-color: #0056b3;
         }
 
@@ -115,52 +105,30 @@
         .example-container .description {
             color: #666;
         }
-
-        .button {
-            margin-top: 20px;
-            margin-left: 20px;
-            margin-right: 10px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
-    <div>
-        <h1>From Text to 3D using LLM</h1>
-    </div>
-
-    <form id="model_form" method="get" action="/usage">
-        <button class="button" type="submit">Usage Example</button>
+    <form method="get" action="/">
+        <button class="button" type="submit">Go to Home Page</button>
     </form>
+    <div class="example-container">
+        <h2>Usage Example</h2>
+        <p class="description">You can ask for:<br>
+            "A box" <br><br> and get the following model:<br>
+        </p>
+        <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+            <img src="../static/box.png" alt="Example Image" style="max-width: 50%; max-height: 50%;">
+        </div>
+        
+        <p class="description"> Once the object is generated you can modify some of it's parameters:<br></p>
+        <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+            <img src="../static/modify.png" alt="Example Image" style="max-width: 50%; max-height: 50%;">
+        </div>
 
-    <div class="container">
-        <!-- <h1>Generate 3D Model</h1> -->
-        <p class="description">Welcome to: <br><br> "From Text to 3D using LLM"!<br><br> Here you can describe 3D objects in detail, visualize virtual models, make modifications, and generate printer-ready code.</p>
-        <form id="model_form" method="post" action="/generate_model" onsubmit="showLoading()">
-            <label for="user_input"></label><br><br>
-            <input type="text" id="user_input" name="user_input" placeholder="Enter Your Prompt"><br>
-            <input type="submit" value="Generate Model">
-        </form>
+        <p class="description">Once you are satisfy from the result, you can generate a printer ready code:<br></p>
+        <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+            <img src="../static/gcode.png" alt="Example Image" style="max-width: 50%; max-height: 50%;">
+        </div>
     </div>
-
-    <div class="loading-overlay" id="loading_overlay">
-        <div class="loading-spinner"></div>
-        <p class="loading-message">Creating your object...</p>
-    </div>
-
-    <script>
-        function showLoading() {
-            document.getElementById('loading_overlay').style.display = 'flex';
-        }
-    </script>
 </body>
 </html>

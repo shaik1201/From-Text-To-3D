@@ -1,0 +1,7 @@
+Plate Body: curved or sloping sides that extend upward from the base.
+Parameters: body_bottom_radius=100, body_top_radius=140, body_height=21
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Plate Base: A flat surface in a circle shape at the bottom of the plate.
+Parameters: base_radius=body_bottom_radius
+Orientation: base_origin=body_origin, base_normal=body_normal

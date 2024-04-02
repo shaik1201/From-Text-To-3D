@@ -1,0 +1,13 @@
+Pot Body: A hemisphere or cylindrical shape.
+Parameters: body_height=100, body_radius=130
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Pot Base: A flat surface in circle shape at the bottom of the pot.
+Parameters: base_radius=body_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Pot Handles: A pair of horizontal semi-circular shapes, attached horizontally on opposite sides of the pot body.
+Parameters: handle_length=100, handle_width=30, handle_thickness=20, handle_relative_height=0.9
+Alignment: handle_alignment=YAxis (Horizontal)
+Right Handle Orientation: right_handle_origin=(body_radius,0, body_height*handle_relative_height), right_handle_normal=XAxis
+Left Handle Orientation: left_handle_origin=(-body_radius,0, body_height*handle_relative_height), left_handle_normal=-XAxis

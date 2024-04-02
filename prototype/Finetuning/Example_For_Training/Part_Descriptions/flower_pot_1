@@ -1,0 +1,7 @@
+Pot Body: a semi-sphere or a cylinder with a slight curve outwards at the top edge
+Parameters: body_height=100, body_bottom_radius=100, body_top_radius=120, body_edge_protrusion=10, body_edge_protrusion_reltive_hieght=0.8
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Pot Base: A perforated flat surface in circle shape at the bottom of the pot. The holes are located in circle around the center of the surface
+Parameters: base_radius=body_bottom_radius, holes_radius=10,  holes_amount=4, holes_distance_from_center=40
+Orientation: base_origin=body_origin, base_normal=body_normal

@@ -1,0 +1,15 @@
+Jar Body: A cylindrical shape.
+Parameters: body_height=150, body_radius=70
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Jar Base: A flat surface in circle shape at the bottom of the jar.
+Parameters: base_radius=body_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Jar Lid: A flat circular disk or semi-spherical shape on the top of the body.
+Parameters: lid_radius=body_radius, lid_height=10
+Orientation: lid_origin=(0,0,body_height), lid_normal=body_normal
+
+Lid Handle: A small cylinder that sits on the top center of the lid.
+Parameters: lid_handle_radius=lid_radius*0.1, lid_handle_height=5
+Orientation: lid_handle_origin=(0,0,body_height+lid_height), lid_handle_normal=body_normal

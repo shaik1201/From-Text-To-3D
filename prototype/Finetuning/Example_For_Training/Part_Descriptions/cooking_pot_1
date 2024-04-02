@@ -1,0 +1,25 @@
+Pot Body: A hemisphere or cylindrical shape.
+Parameters: body_height=130, body_radius=150
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Pot Base: A flat surface in circle shape at the bottom of the pot.
+Parameters: base_radius=body_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Pot Handles: A pair of horizontal semi-circular shapes, attached horizontally on opposite sides of the pot body.
+Parameters: handle_radius=30, handle_thickness=20, handle_relative_height=0.9
+Alignment: handle_alignment=YAxis
+Right Handle Orientation: right_handle_origin=(body_radius,0, body_height*handle_relative_height), right_handle_normal=XAxis
+Left Handle Orientation: left_handle_origin=(-body_radius,0, body_height*handle_relative_height), left_handle_normal=-XAxis
+
+Pot Rim: A circular, slightly protruding edge at the top of the pot, often designed to support the lid.
+Parameters: rim_external_radius=body_radius, rim_tickness=10
+Orientation: rim_origin=(0,0,body_height), rim_normal=body_normal
+
+Pot Lid: A flat circular disk or semi-spherical shape on the top of the body. A little bit larger than rim internal ring
+Parameters: lid_bottom_radius=145, lid_top_radius=lid_handle_radius, lid_height=30
+Orientation: lid_origin=(0,0,body_height), lid_normal=body_normal
+
+Lid Handle: A small semi-sphere that sits on the top center of the lid.
+Parameters: lid_handle_radius=10
+Orientation: lid_handle_origin=(0,0,body_height+lid_height), lid_handle_normal=body_normal

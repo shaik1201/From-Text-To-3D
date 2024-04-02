@@ -1,0 +1,8 @@
+Ladle body: A hollow half-sphere.
+Parameters: ladle_radius=45
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Ladle handle: A curved thin box in an r shape, constructed from a joined line and arc.
+Parameters: handle_height=300, handle_bend_radius=70, handle_width=10, handle_thickness=1, handle_relative_height=0.5
+Alignment: handle_alignment=ZAxis (Vertical)
+Orientation: handle_origin=(0,ladle_radius,ladle_radius*handle_relative_height), handle_normal=YAxis

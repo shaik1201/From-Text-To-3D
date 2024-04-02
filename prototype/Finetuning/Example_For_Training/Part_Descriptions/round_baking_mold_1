@@ -1,0 +1,11 @@
+Round baking mold body: A hollow cylinder.
+Parameters: body_radius=150, body_height=50
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Round baking mold Base: A flat surface in a circular shape at the bottom of the round baking mold.
+Parameters: base_radius=body_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Round baking mold rim: An offset circular surface along the top edges of the mold.
+Parameters: rim_radius_inner=body_radius, rim_thickness=10
+Orientation: rim_origin=(0,0,body_height), rim_normal=body_normal

@@ -1,0 +1,4 @@
+from Finetuning.build_json_for_finetuning import build_disassembler_finetuning_file, build_code_writer_finetuning_file, build_assembler_finetuning_file
+# build_disassembler_finetuning_file()
+build_code_writer_finetuning_file()
+build_assembler_finetuning_file()

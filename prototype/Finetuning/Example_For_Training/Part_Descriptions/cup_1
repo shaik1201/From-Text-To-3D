@@ -1,0 +1,12 @@
+Cup Body: A shape similar to a truncated sphere, or a bowl with a curved surface that expands towards the middle.
+Parameters: body_height=60, body_base_radius=20, body_middle_radius=30, body_rim_radius=35
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Cup Base: A flat surface in circle shape at the bottom of the cup.
+Parameters: base_radius=body_base_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Cup Handle: A semi-circular shape, attached vertically on the side of the cup body.
+Parameters: handle_height=50, handle_width=30, handle_thickness=10, handle_relative_height=0.5
+Alignment: handle_alignment=ZAxis (Vertical)
+Orientation: handle_origin=(body_radius,0, body_height*handle_relative_height), handle_normal=XAxis

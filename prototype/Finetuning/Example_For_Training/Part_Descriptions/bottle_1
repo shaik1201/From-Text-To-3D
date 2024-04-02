@@ -1,0 +1,11 @@
+Bottle Body: A cylinder shape that becomes narrow in its neck
+Parameters: body_botom_part_height=130, body_bottom_radius=80, body_neck_radius=40, body_neck_height=70
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Bottle Base: A flat surface in circle shape at the bottom of the bottle.
+Parameters: base_radius=body_bottom_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Bottle lid: A cyllider shape with cap top sitting on the top of the body
+Parameters: lid_radius=body_neck_radius, lid_height=15
+Orientation: lid_origin=(0,0,body_botom_part_height+body_neck_height-lid_height), lid_normal=body_normal

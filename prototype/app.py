@@ -65,5 +65,9 @@ def present_obj():
 
     return render_template('present_obj.html')
 
+@app.route('/usage', methods=['GET'])
+def usage():
+    return render_template('usage.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

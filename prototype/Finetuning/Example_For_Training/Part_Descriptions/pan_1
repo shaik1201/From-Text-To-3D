@@ -1,0 +1,11 @@
+Pan Body: This is usually a flat cylindrical shape with a slightly raised edge.
+Parameters: body_radius=200, body_height=30
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Pan Base: A flat surface in circle shape at the bottom of the pan.
+Parameters: base_radius=body_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Pan Handle: A long, straight or slightly curved extension from the main body of the pan.
+Parameters: handle_length=180, handle_thickness=20, handle_relative_height=0.5, handle_obliquity=1.3
+Orientation: handle_origin=(body_radius,0, body_height*handle_relative_height), handle_normal=XAxis+ZAxis*handle_obliquity

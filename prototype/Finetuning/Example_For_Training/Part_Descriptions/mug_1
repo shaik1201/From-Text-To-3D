@@ -1,0 +1,12 @@
+Mug Body: A cylindrical shape.
+Parameters: body_height=100, body_radius=50
+Orientation: body_origin=(0,0,0), body_normal=ZAxis
+
+Mug Base: A flat surface in circle shape at the bottom of the mug.
+Parameters: base_radius=body_radius
+Orientation: base_origin=body_origin, base_normal=body_normal
+
+Mug Handle: A semi-circular shape, attached vertically on the side of the mug body.
+Parameters: handle_height=70, handle_width=30, handle_thickness=10, handle_relative_height=0.5
+Alignment: handle_alignment=ZAxis (Vertical)
+Orientation: handle_origin=(body_radius,0, body_height*handle_relative_height), handle_normal=XAxis
