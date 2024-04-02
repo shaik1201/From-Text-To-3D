@@ -90,7 +90,7 @@
         <h1>Modify Your 3D Model</h1>
         <form onsubmit="showLoading()" method="post" action="/modified_model" >
             {% for param, min_max in params.items() %}
-            <label for="{{ param }}">{{ param }} (Min: {{ min_max[0] }}, Max: {{ min_max[1] }}):</label><br>
+            <label for="{{ param }}">{{ param.replace("_", " ").capitalize() }} (Min: {{ min_max[0] }}, Max: {{ min_max[1] }}):</label><br>
             <input type="hidden" id="{{ param }}_value" name="{{ param }}_value" value="{{ min_max[2] }}">
             <input type="range" id="{{ param }}" name="{{ param }}" class="slider" min="{{ min_max[0] }}" max="{{ min_max[1] }}" value="{{ min_max[2] }}" step="1"><br>
             <span id="{{ param }}_display">Chosen value: {{ min_max[2] }}</span><br><br>
