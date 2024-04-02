@@ -4,3 +4,4 @@ rhinoinside
 Rhino
 trimesh
 gunicorn
+pythonnet
