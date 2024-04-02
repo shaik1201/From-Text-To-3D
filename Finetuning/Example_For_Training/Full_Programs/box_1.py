@@ -23,9 +23,14 @@ def create_expanding_box_body(origin, normal, length, width, height, expansion):
     Return: 
         Rhino.Geometry.Brep: the created box
     """
+    # import clr
+    from pythonnet import load
+    load('coreclr')
     import clr
     clr.AddReference("System.Collections")
     from System.Collections.Generic import List
+    
+    
     TOLERANCE = 0.01
     
     try:
