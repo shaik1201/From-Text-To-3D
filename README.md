@@ -11,7 +11,7 @@ providing users with a virtual 3D model that they can modify before printing. Le
 a multi-agent system with a finetuned GPT-4 model, the project ensures efficient 
 translation of user prompts into 3D printing instructions (G-code).
 
-note:
+**NOTE:**
 we are using api key for using the fine tuned gpt4 model. in the future when the model will be ready you can add to the const.py insinde the Consts folder a new variable:
 OPENAI_API_KEY = "your_api_key"
 
