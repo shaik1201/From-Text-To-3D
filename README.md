@@ -16,6 +16,8 @@ translation of user prompts into 3D printing instructions (G-code).
 `OPENAI_API_KEY = "your_api_key"`
 However, for now, we do not use this option as the fine-tuned model is not perfectly ready yet due to insufficient examples. Therefore, we are currently using already generated Python code examples that create the object we are presenting. Consequently, we only support prompts which contain the following objects: 'box', 'bowl', 'ellipse baking mold', 'plate', 'cup', 'glass', 'bottle', 'baking mold', 'flower pot', 'hook', and 'toothpick dispenser'.
 
+> Currently, the generation of G-code for printing the object is not supported. However, in the future, we plan to implement a solution that facilitates this process. This will likely involve integrating with external software capable of converting an OBJ file into a G-code file, which can then be used to input into a 3D printer.
+
 ## How to start:
 1. **Environment Setup:** Create a Conda environment using the provided `environment.yml` file. Run the command:
    `conda env create -f environment.yml`
