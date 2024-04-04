@@ -11,7 +11,7 @@ providing users with a virtual 3D model that they can modify before printing. Le
 a multi-agent system with a finetuned GPT-4 model, the project ensures efficient 
 translation of user prompts into 3D printing instructions (G-code).
 
-> [!NOTE]  
+> [!NOTE] 1
 > In the future, when the fine-tuned GPT-4 model is ready, you can add a new variable to the const.py file inside the Consts folder:
 `OPENAI_API_KEY = "your_api_key"`
 However, for now, we do not use this option as the fine-tuned model is not perfectly ready yet due to insufficient examples. Therefore, we are currently using already generated Python code examples that create the object we are presenting. Consequently, we only support prompts which contain the following objects: 'box', 'bowl', 'ellipse baking mold', 'plate', 'cup', 'glass', 'bottle', 'baking mold', 'flower pot', 'hook', and 'toothpick dispenser'.
