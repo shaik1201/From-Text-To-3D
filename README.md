@@ -21,7 +21,10 @@ However, for now, we do not use this option as the fine-tuned model is not perfe
 
 ## How to start:
 1. **Environment Setup:** Create a Conda environment using the provided `environment.yml` file. Run the command:
-   `conda env create -f environment.yml`
+```
+conda env create -f environment.yml
+```
+   
 
 2. **Activate Environment:** Activate the environment using the following command:
 `conda activate env-nev`
