@@ -1,7 +1,4 @@
-Flask
-werkzeug 
+Flask 
 rhinoinside
 Rhino
 trimesh
-gunicorn
-pythonnet

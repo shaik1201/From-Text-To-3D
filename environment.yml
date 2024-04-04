@@ -1,0 +1,9 @@
+name: env-nev
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - Flask
+  - pip
+  - pip:
+    - -r requirements.txt

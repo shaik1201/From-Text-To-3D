@@ -4,7 +4,6 @@ rhinoinside.load()
 # import System  # noqa
 import Rhino
 import Rhino.Geometry as rg  # noqa
-import rhino3dm
 
 import traceback
 from Utils.file_utils import get_file_content
