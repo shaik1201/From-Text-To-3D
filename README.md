@@ -27,8 +27,12 @@ conda env create -f environment.yml
    
 
 2. **Activate Environment:** Activate the environment using the following command:
-`conda activate env-nev`
+```
+conda activate env-nev
+```
 
 3. **Launch the Application:** Start the application by running:
-`python app.py`
+```
+python app.py
+```
 
