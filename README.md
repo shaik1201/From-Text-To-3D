@@ -14,7 +14,6 @@ translation of user prompts into 3D printing instructions (G-code).
 > [!NOTE]  
 > we are using api key for using the fine tuned gpt4 model. in the future when the model will be ready you can add to the const.py insinde the Consts folder a new variable:
 OPENAI_API_KEY = "your_api_key"
-
 for now we dont use this option as the fine tuned model is not perfectly ready yet because there are still not enough examples for doing so.
 hence we are using already generated python codes examples that creating the object we are presenting.
 hence we only support prompts which contain the following objects:
