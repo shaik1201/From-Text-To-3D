@@ -24,5 +24,5 @@ However, for now, we do not use this option as the fine-tuned model is not perfe
 `conda activate env-nev`
 
 3. **Launch the Application:** Start the application by running:
-python app.py
+`python app.py`
 
