@@ -12,13 +12,9 @@ a multi-agent system with a finetuned GPT-4 model, the project ensures efficient
 translation of user prompts into 3D printing instructions (G-code).
 
 > [!NOTE]  
-> we are using api key for using the fine tuned gpt4 model. in the future when the model will be ready you can add to the const.py insinde the Consts folder a new variable:
-OPENAI_API_KEY = "your_api_key"
-for now we dont use this option as the fine tuned model is not perfectly ready yet because there are still not enough examples for doing so.
-hence we are using already generated python codes examples that creating the object we are presenting.
-hence we only support prompts which contain the following objects:
- 'box', 'bowl', 'ellipse baking mold', 'plate', 'cup', 'glass',
-                'bottle', 'baking mold', 'flower pot', 'hook', 'toothpick dispenser'
+> In the future, when the fine-tuned GPT-4 model is ready, you can add a new variable to the const.py file inside the Consts folder:
+`OPENAI_API_KEY = "your_api_key"`
+However, for now, we do not use this option as the fine-tuned model is not perfectly ready yet due to insufficient examples. Therefore, we are currently using already generated Python code examples that create the object we are presenting. Consequently, we only support prompts which contain the following objects: 'box', 'bowl', 'ellipse baking mold', 'plate', 'cup', 'glass', 'bottle', 'baking mold', 'flower pot', 'hook', and 'toothpick dispenser'.
 
 1. **Environment Setup:** Create a Conda environment using the provided `environment.yml` file. Run the command:
    `conda env create -f environment.yml`
